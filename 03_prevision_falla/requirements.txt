@@ -1,0 +1,25 @@
+# Core
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+
+# Machine Learning
+xgboost
+tensorflow
+joblib
+
+# API (si se implementa)
+fastapi
+uvicorn[standard]
+pydantic
+python-multipart
+
+# Optimization
+optuna
+
+# Jupyter
+jupyter
+ipykernel
+

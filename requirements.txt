@@ -1,0 +1,35 @@
+# Core Data Science Libraries
+pandas
+numpy
+scipy
+
+# Machine Learning
+scikit-learn
+
+# Visualization
+matplotlib
+seaborn
+
+# Gradient Boosting (Ejercicio 3)
+xgboost
+
+# Deep Learning (Ejercicio 3 - LSTM)
+tensorflow
+
+# Hyperparameter Optimization (Ejercicio 3)
+optuna
+
+# Utilities
+tqdm
+joblib
+
+# Jupyter (para notebooks)
+jupyter
+ipykernel
+ipywidgets
+
+# APIs (Ejercicios 2 y 3)
+fastapi
+uvicorn[standard]
+pydantic
+python-multipart

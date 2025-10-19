@@ -1,0 +1,14 @@
+# Requirements para API de Similitud
+fastapi
+uvicorn[standard]
+pydantic
+pandas
+numpy
+scikit-learn
+python-multipart
+requests
+
+# Optional - para producción
+# slowapi==0.1.9  # Rate limiting
+# prometheus-fastapi-instrumentator==6.1.0  # Métricas
+

@@ -1,0 +1,54 @@
+# Docker Compose para Desafío de Data Science
+
+version: '3.8'
+
+services:
+  
+  # Servicio 1: API de Similitud de Productos
+  similarity-api:
+    build:
+      context: ./02_similitud_productos
+      dockerfile: Dockerfile
+    container_name: similarity-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./02_similitud_productos:/app
+      - ./data:/app/data:ro  # Read-only data
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=info
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - ml-network
+  
+  # Servicio 2: API de Predicción de Fallas
+  prediction-api:
+    build:
+      context: ./03_prevision_falla
+      dockerfile: Dockerfile
+    container_name: prediction-api
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./03_prevision_falla:/app
+      - ./data:/app/data:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=info
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - ml-network
+  
